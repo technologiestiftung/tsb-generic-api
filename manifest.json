@@ -1,0 +1,94 @@
+{
+  "server": {
+    "port": "$env.PORT",
+    "routes": {
+      "cors": {
+        "origin": [
+          "*"
+        ],
+        "additionalHeaders": ["cache-control", "x-requested-with", "authorization"]
+      }
+    }
+  },
+  "register": {
+    "plugins": [
+      "hapi-boom-decorators",
+      {
+        "plugin": "hapi-rate-limitor",
+        "options": {
+          "redis": "$env.REDIS_URL",
+          "namespace": "hapi-rate-limitor",
+          "enabled": false
+        }
+      },
+      {
+        "plugin": "./src/api/email",
+        "options": {
+          "host": "$env.SMTP_HOST",
+          "user": "$env.SMTP_USER",
+          "pass": "$env.SMTP_PASS",
+          "frontendURL": "https://tsb-kulturb-cms.netlify.com",
+          "paths": {
+            "login": "/login",
+            "users": "/users",
+            "confirm": "/confirm-email",
+            "resetPassword": "/change-password"
+          }
+        }
+      },
+      {
+        "plugin": "./src/api/db",
+        "options": {
+          "url": "$env.MONGODB_URI"
+        }
+      },
+      {
+        "plugin": "./src/api/users",
+        "routes": {
+          "prefix": "/api/v2/users"
+        },
+        "options": {
+          "admin": {
+            "email": "$env.ADMIN_EMAIL",
+            "password": "$env.ADMIN_PASSWORD"
+          }
+        }
+      },
+      {
+        "plugin": "./src/api/files",
+        "routes": {
+          "prefix": "/api/v2/files"
+        },
+        "options": {
+          "bucket": "kulturb-api"
+        }
+      },
+      {
+        "plugin": "./src/api/crud",
+        "options": {
+          "models": "./models/"
+        },
+        "routes": {
+          "prefix": "/api/v2/"
+        }
+      },
+      {
+        "plugin": "./src/api/changes",
+        "routes": {
+          "prefix": "/api/v2/changes"
+        }
+      },
+      {
+        "plugin": "hapi-pino",
+        "options": {
+          "prettyPrint": true,
+          "redact": ["req.headers.authorization"]
+        }
+      },
+      "inert",
+      "vision",
+      "hapi-swagger",
+      "blipp"
+    ]
+  }
+}
