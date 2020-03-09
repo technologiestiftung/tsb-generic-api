@@ -60,7 +60,7 @@
           "prefix": "/api/v2/files"
         },
         "options": {
-          "bucket": "kulturb-api"
+          "bucket": "kulturbdigital-backend-images"
         }
       },
       {
