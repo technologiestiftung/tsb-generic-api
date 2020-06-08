@@ -27,7 +27,7 @@
     "@hapi/lab": "21.0.0",
     "@hapi/wreck": "17.0.0",
     "aws-sdk": "2.387.0",
-    "bcrypt": "3.0.3",
+    "bcrypt": "3.0.8",
     "blipp": "3.1.2",
     "boom": "7.3.0",
     "bottleneck": "2.17.1",
