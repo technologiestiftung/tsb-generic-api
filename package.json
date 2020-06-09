@@ -41,7 +41,7 @@
     "hapi-boom-decorators": "4.1.2",
     "hapi-pino": "5.2.0",
     "hapi-rate-limitor": "2.4.0",
-    "hapi-swagger": "11.0.0",
+    "hapi-swagger": "11.1.0",
     "inert": "5.1.2",
     "joigoose": "6.2.0",
     "jsonwebtoken": "8.4.0",
