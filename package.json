@@ -43,7 +43,7 @@
     "hapi-rate-limitor": "2.4.0",
     "hapi-swagger": "11.0.0",
     "inert": "5.1.2",
-    "joigoose": "6.2.0",
+    "joigoose": "7.1.2",
     "jsonwebtoken": "8.4.0",
     "lodash": "4.17.15",
     "mongoose": "5.7.12",
