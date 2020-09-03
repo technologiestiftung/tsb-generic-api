@@ -32,7 +32,7 @@
     "boom": "7.3.0",
     "bottleneck": "2.19.5",
     "csvtojson": "2.0.10",
-    "d3-dsv": "1.2.0",
+    "d3-dsv": "2.0.0",
     "dotenv": "6.2.0",
     "fast-xml-parser": "3.17.4",
     "got": "9.6.0",
